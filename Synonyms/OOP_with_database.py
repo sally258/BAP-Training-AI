@@ -141,9 +141,11 @@ class DBHelper():
         Đóng kết nối với SQL
         :return:
         """
-        self.__conn = None
-        self.__conn = None
-
+        try:
+            self.__conn.close()
+            self.__conn.close()
+        except:
+            pass
 if __name__ == '__main__':
     # connect SQL
     helper = DBHelper('localhost','3306','root','123456789','Test')
