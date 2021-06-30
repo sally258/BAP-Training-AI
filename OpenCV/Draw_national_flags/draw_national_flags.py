@@ -155,7 +155,7 @@ def Bresenham(a, R: int, xI: int, yI: int):
         x += 1
     return a
 
-def Libya():
+def Libya(width, height):
     k = int(1.618 * 400 // 1)
     a = np.ones((400, k, 3))
     green = np.array([49 / m, 149 / m, 0 / m])
@@ -164,11 +164,15 @@ def Libya():
         for j in range(a.shape[1]):
             a[i][j] = green
 
-    img = cv2.imshow('Libya', a)
+    a = cv2.resize(a, (width, height))
+    cv2.imshow('Libya', a)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-def France():
+    # a = a * m
+    # cv2.imwrite(r"E:\Intership\OpenCV\Image\Libya.png", a)
+
+def France(width, height):
     k = int(1.618 * 400 // 1)
     a = np.ones((400,k,3))
     blue = np.array([150/m, 36/m, 0/m])
@@ -185,11 +189,14 @@ def France():
             else:
                 a[i][j] = red
 
+    a = cv2.resize(a, (width, height))
     img = cv2.imshow('France', a)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-def Italy():
+    # a = a * m
+    # cv2.imwrite(r"E:\Intership\OpenCV\Image\France.png", a)
+def Italy(width, height):
     k = int(1.618 * 400 // 1)
     a = np.ones((400, k, 3))
     green = np.array([53/m,149/m,31/m])
@@ -206,13 +213,15 @@ def Italy():
             else:
                 a[i][j] = red
 
+    a = cv2.resize(a, (width, height))
     img = cv2.imshow('Italy', a)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
+    # a = a * m
+    # cv2.imwrite(r"E:\Intership\OpenCV\Image\Italy.png", a)
 
-
-def Japan():
+def Japan(width, height):
     k = int(1.618 * 400 // 1)
     A = np.ones((400, k, 3))
     a = np.zeros((400, k))
@@ -228,11 +237,14 @@ def Japan():
             else:
                 A[i][j] = np.array(red)
 
+    A = cv2.resize(A, (width, height))
     img = cv2.imshow('Japan', A)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-def HaLan():
+    # A*=m
+    # cv2.imwrite(r"E:\Intership\OpenCV\Image\Japan.png", A)
+def HaLan(width, height):
     k = int(1.618 * 400 // 1)
     a = np.ones((400, k, 3))
     red = np.array([1/m,11/m,172/m])
@@ -249,11 +261,15 @@ def HaLan():
             else:
                 a[i][j] = blue
 
+    a = cv2.resize(a, (width, height))
     img = cv2.imshow('HaLan', a)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-def VietNam():
+    # a *= m
+    # cv2.imwrite(r"E:\Intership\OpenCV\Image\HaLan.png", a)
+
+def VietNam(width, height):
     k = int(1.618 * 400 // 1)
     A = np.ones((400, k, 3))
     a = np.zeros((400, k))
@@ -269,11 +285,15 @@ def VietNam():
             else:
                 A[i][j] = yellow
 
+    A = cv2.resize(A, (width, height))
     img = cv2.imshow('VietNam', A)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-def Bangladesh():
+    # A *= m
+    # cv2.imwrite(r"E:\Intership\OpenCV\Image\VietNam.png", A)
+
+def Bangladesh(width, height):
     k = int(1.618 * 400 // 1)
     A = np.ones((400, k, 3))
     a = np.zeros((400, k))
@@ -289,11 +309,15 @@ def Bangladesh():
             else:
                 A[i][j] = np.array(red)
 
+    A = cv2.resize(A, (width, height))
     img = cv2.imshow('Bangladesh', A)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-def Benin():
+    # A *= m
+    # cv2.imwrite(r"E:\Intership\OpenCV\Image\Bangladesh.png", A)
+
+def Benin(width, height):
     k = int(1.618 * 400 // 1)
     a = np.ones((400, k, 3))
     green = np.array([81/m, 135/m, 0])
@@ -313,11 +337,15 @@ def Benin():
             else:
                 a[i,j] = red
 
+    a = cv2.resize(a, (width, height))
     img = cv2.imshow('Benin', a)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-def BurkinaFaso():
+    # a *= m
+    # cv2.imwrite(r"E:\Intership\OpenCV\Image\Benin.png", a)
+
+def BurkinaFaso(width, height):
     k = int(1.618 * 400 // 1)
     A = np.ones((400, k, 3))
     a = np.zeros((400, k))
@@ -337,11 +365,15 @@ def BurkinaFaso():
             else:
                 A[i][j] = yellow
 
+    A = cv2.resize(A, (width, height))
     img = cv2.imshow('Burkina Faso', A)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-def Cameroon():
+    A *= m
+    cv2.imwrite(r"E:\Intership\OpenCV\Image\BurkinaFaso.png", A)
+
+def Cameroon(width, height):
     k = int(1.618 * 400 // 1)
     A = np.ones((400, k, 3))
     a = np.zeros((400, k))
@@ -364,11 +396,15 @@ def Cameroon():
             else:
                 A[i,j] = yellow
 
+    A = cv2.resize(A, (width, height))
     img = cv2.imshow('Cameroon', A)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-def Congo():
+    # A *= m
+    # cv2.imwrite(r"E:\Intership\OpenCV\Image\Cameroon.png", A)
+
+def Congo(width, height):
     k = int(1.618 * 400 // 1)
     A = np.ones((400, k, 3))
     a = np.zeros((400, k))
@@ -413,20 +449,27 @@ def Congo():
         for j in range(A.shape[1]):
             if a[i,j] == 1:
                 A[i,j] = yellow
+
+    A = cv2.resize(A, (width, height))
+
     img = cv2.imshow('Congo', A)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
+    # A *= m
+    # cv2.imwrite(r"E:\Intership\OpenCV\Image\Congo.png", A)
+
 if __name__ == '__main__':
-    Libya()
-    France()
-    Italy()
-    Japan()
-    HaLan()
-    VietNam()
-    Bangladesh()
-    Benin()
-    BurkinaFaso()
-    Cameroon()
-    Congo()
+    width, height = 800, 500
+    # Libya(width, height)
+    # France(width, height)
+    # Italy(width, height)
+    # Japan(width, height)
+    # HaLan(width, height)
+    # VietNam(width, height)
+    # Bangladesh(width, height)
+    # Benin(width, height)
+    # BurkinaFaso(width, height)
+    # Cameroon(width, height)
+    # Congo(width, height)
     pass
