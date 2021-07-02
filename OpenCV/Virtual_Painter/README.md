@@ -9,3 +9,6 @@
 ##### 1. contours: tách màu
 ##### 2. choose_center: tính toán lấy danh sách các điểm để vẽ
 ##### 3. main: chạy chương trình
+
+## Demo
+![](https://github.com/sally258/BAP-Training-AI/blob/master/OpenCV/Virtual_Painter/Demo.png?raw=true])
