@@ -75,6 +75,7 @@ def main(t):
             "giữ phím a để xóa màn hình"
             c = 0
             center_list = []
+            color_list = []
 
         if ret:
             if c == 1:
