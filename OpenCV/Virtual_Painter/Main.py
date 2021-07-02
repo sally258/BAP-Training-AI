@@ -3,14 +3,20 @@ import cv2
 
 lower_green = np.array([30, 75, 141])
 upper_green = np.array([90, 255, 255])
-# yellow_green = (104, 239, 217)#np.array([104, 239, 217])
+green = (120, 255, 217)#np.array([104, 239, 217])
 
 lower_red = np.array([0,125,0])
 upper_red = np.array([17,224,146])
+red = (0,0,250)
 
 lower_blue = np.array([105,135,80])
 upper_blue = np.array([119,224,231])
-pink = (97, 12, 254)
+blue = (250,0,0)
+
+pink = (60, 165, 198)
+
+color_list = []
+center_list = []
 
 def contours(img, lower, upper):
     """
@@ -32,28 +38,10 @@ def contours(img, lower, upper):
     cv2.drawContours(copy_image, contours, -1, (255, 0, 0), 3)
 
     return copy_image, contours
-    pass
 
-def choose_center(center_list, con):
-    #print(len(con))
-    # m = 0
-    # tmp = []
-    # for i in con:
-    #     if len(i) > m:
-    #         m = len(i)
-    #         tmp = i
-    # if m == 0:
-    #     return []
-    #
-    # avg = [0, 0]
-    # for i in tmp:
-    #     avg[0]+=i[0][0]
-    #     avg[1]+=i[0][1]
-    # if m != 0:
-    #     avg[0]//=m
-    #     avg[1]//=m
-    #
-    # return avg
+def choose_center(con, color):
+    global center_list
+    global color_list
     for i in range(len(con)):
         avg = [0,0]
         for j in range(len(con[i])):
@@ -61,12 +49,15 @@ def choose_center(center_list, con):
             avg[1]+=con[i][j][0][1]
         avg[0]//=len(con[i])
         avg[1]//=len(con[i])
+
         center_list.append(avg)
-    return center_list
+        color_list.append(color)
     pass
 
 def main(t):
-    center_list = []
+    global center_list
+    global color_list
+
     c = 0 # check cho phép vẽ
 
     vid = cv2.VideoCapture(t)
@@ -87,21 +78,18 @@ def main(t):
 
         if ret:
             if c == 1:
-                img, con = contours(frame, lower_blue, upper_blue)
-                #  cv2.imshow("frame", frame)
-                center_list = choose_center(center_list, con)
+                img1, con1 = contours(frame, lower_blue, upper_blue)
+                img2, con2 = contours(frame, lower_red, upper_red)
+                img3, con3 = contours(frame, lower_green, upper_green)
 
-                # if len(center) > 0:
-                #     center_list.append(center)
-                #     # array = cv2.circle(array, center, 10, yellow_green, -1)
-
-                # for i in range(len(center_list)):
-                #     cv2.circle(frame, center_list[i], 12, pink, -1)
+                choose_center(con1, blue)
+                choose_center(con2, red)
+                choose_center(con3, green)
         else:
             break
 
         for i in range(len(center_list)):
-            cv2.circle(frame, center_list[i], 12, pink, -1)
+            cv2.circle(frame, center_list[i], 12, color_list[i], -1)
         cv2.imshow('', frame)
 
     cv2.destroyAllWindows()

@@ -3,7 +3,6 @@
 #### Giữ phím C để bắt đầu vẽ hoặc dừng vẽ
 #### Giữ phím A để xóa màn hình, giữ phím C để bắt đầu vẽ
 #### Giữ phím ESC để thoát chương trình
-#### Đổi màu bằng tay nhá ^ ^
 
 
 ## Chức năng
